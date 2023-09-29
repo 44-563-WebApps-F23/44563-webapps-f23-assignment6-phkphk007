@@ -30,20 +30,17 @@
       let oops = 0;
 
       function checkAuthor() {
-        // Get values from input fields
         var secretAuthor = document.getElementById("secretAuthor").value;
         var userGuess = document.getElementById("userGuess").value;
 
-        // Compare the values
         if (userGuess === secretAuthor) {
-          good++; // Increment the good count
+          good++;
           alert("You got it right!");
         } else {
-          oops++; // Increment the oops count
+          oops++;
           alert("Sorry!");
         }
 
-        // Update the counts in the HTML
         document.getElementById("resultMessage").innerHTML =
           "Good Count: " + good + "<br>Oops Count: " + oops;
       }
