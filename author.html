@@ -23,7 +23,7 @@
       <input type="button" value="Check the guess" onclick="checkAuthor()" />
       <br />
     </form>
-    <p id="resultMessage"></p>
+    <p id="resultMes"></p>
 
     <script>
       let good = 0;
@@ -41,7 +41,7 @@
           alert("Sorry!");
         }
 
-        document.getElementById("resultMessage").innerHTML =
+        document.getElementById("resultMes").innerHTML =
           "Good Count: " + good + "<br>Oops Count: " + oops;
       }
     </script>
