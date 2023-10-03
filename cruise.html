@@ -8,16 +8,42 @@
     <h2>Hemanth Kumar goes on a cruise</h2>
 
     <form>
-        <label><input type="checkbox" value="True" onclick="chooseOp()" >Shares Cabin</label></br>        
-        <label> <input type="checkbox" value="True"  onclick="chooseOp()">Breakfast</label></br>
-        <label> <input type="checkbox" value="False"  onclick="chooseOp()">Pool Pass</label></br>
-        <button onclick="selectCruise()">Select a cruise</button>
+      <div class="form-group">
+        <label for="checkbox1">Shares Cabin</label>
+        <input type="checkbox" id="checkbox1" value="True" />
+      </div>
+      <div class="form-group">
+        <label for="checkbox2">Breakfast</label>
+        <input type="checkbox" id="checkbox2" value="True" />
+      </div>
+      <div class="form-group">
+        <label for="checkbox3">Pool Pass</label>
+        <input type="checkbox" id="checkbox3" value="False" />
+      </div>
     </form>
 
-    <p id="result">This text will be replaced</p>
+    <button onclick="selectCruise()">Select a cruise</button>
+
+    <div id="result"></div>
 
     <script>
-      
+      // Declare a global variable my_cruise and set it to an empty object.
+      let my_cruise = {};
+
+      // Function to select the cruise based on checkbox values.
+      function selectCruise() {
+        // Reset my_cruise to an empty object.
+        my_cruise = {};
+
+        // Set properties shared, breakfast, and pool for my_cruise based on checkbox values.
+        my_cruise.shared = document.getElementById("checkbox1").checked;
+        my_cruise.breakfast = document.getElementById("checkbox2").checked;
+        my_cruise.pool = document.getElementById("checkbox3").checked;
+
+        // Replace the innerHTML of the result div with my_cruise.
+        const resultElement = document.getElementById("result");
+        resultElement.innerHTML = JSON.stringify(my_cruise);
+      }
     </script>
   </body>
 </html>
