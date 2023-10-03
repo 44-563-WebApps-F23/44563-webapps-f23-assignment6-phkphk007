@@ -27,15 +27,12 @@
     <div id="result"></div>
 
     <script>
-      // Declare a global variable my_cruise and set it to an empty object.
       let my_cruise = {};
 
-      // Function to select the cruise based on checkbox values.
       function selectCruise() {
-        // Reset my_cruise to an empty object.
         my_cruise = {};
 
-        // Set properties shared, breakfast, and pool for my_cruise based on checkbox values.
+        // Set properties shared, breakfast, and pool for my_cruise values.
         my_cruise.shared = document.getElementById("checkbox1").checked;
         my_cruise.breakfast = document.getElementById("checkbox2").checked;
         my_cruise.pool = document.getElementById("checkbox3").checked;
