@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Tips Collector</title>
+  </head>
+  <body>
+    <h2>Hemanth shows tip amounts</h2>
+    <!-- part 5-->
+    <form>
+      <label for="cost">Enter base amount </label>
+      <input
+        type="number"
+        id="cost"
+        name="amount"
+        min="10"
+        max="50"
+        step="2"
+        value="50"
+      />
+      <br />
+
+      <label for="tip">Enter the tip percent</label>
+      <input type="number" id="tip" name="Tips" value="15" /> <br />
+
+      <input type="button" onclick="tips()" value="Show tip" />
+    </form>
+
+    <p id="result"></p>
+
+    <script>
+      function tips() {
+        let initialAmount = document.getElementById("cost").value;
+        let tipPercent = parseFloat (document.getElementById("tip").value);
+        let myOutput = "";
+        for (let i = tipPercent; i < tipPercent + 20; i+=4) {
+          let tipcalculated = (i * initialAmount) / 100;
+          myOutput += `Tip ${i}% is ${tipcalculated}; `;
+        }
+        document.getElementById("result").innerHTML = "Tips are: " + myOutput;
+      }
+    </script>
+
+    <!--part 6-->
+    <form>
+        <input type="radio" id="rg1_red" name="calculation" value="sum"   
+          onclick="chooseOp()" >
+        <label for="rg1_red">sum</label></br>
+      
+        <input type="radio" id="rg1_blue" name="calculation" 
+           value="difference"  onclick="chooseOp()">
+        <label for="rg1_blue">diff</label></br>
+      
+        <input type="radio" id="rg1_green" name="calculation"   
+           value="product"  onclick="chooseOp()">
+        <label for="rg1_green">mult</label></br>
+        <label>
+            <input type="radio" name="calculation" value="quotient" onClick="chooseOp()"> Quotient
+        </label><br>
+
+<p id="part6"></p>
+      </form>
+      <script>
+        
+        function chooseOp() {
+            // Get the base and tip values from the previous part
+            const baseValue = parseFloat(document.getElementById("cost").value);
+            const tip = parseFloat(document.getElementById("tip").value);
+
+            // Get the selected calculation (sum, difference, product, or quotient)
+            const calculation = document.querySelector('input[name="calculation"]:checked').value;
+
+            // Initialize a variable to store the result
+            let result;
+
+            // Perform the selected calculation based on the checked radio button
+            switch (calculation) {
+                case "sum":
+                    result = `Sum of ${baseValue} and ${tip} is ${baseValue + tip}`;
+                    break;
+                case "difference":
+                    result = `Difference of ${baseValue} and ${tip} is ${baseValue - tip}`;
+                    break;
+                case "product":
+                    result = `Product of ${baseValue} and ${tip} is ${baseValue * tip}`;
+                    break;
+                case "quotient":
+                    result =  `Product of ${baseValue} and ${tip} is ${baseValue / tip}`;
+                    break;
+            }
+            document.getElementById("part6").innerHTML = result;
+        }
+      </script>
+      
+  </body>
+</html>
