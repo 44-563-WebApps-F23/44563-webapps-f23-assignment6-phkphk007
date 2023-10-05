@@ -97,12 +97,11 @@
           alert("You got it right!");
         } else {
           oops++;
+          alert("Sorry!");
           if (oops > 3) {
             gamelimit();
             return;
           }
-
-          alert("Sorry!");
         }
 
         document.getElementById("resultMes").innerHTML =
