@@ -44,6 +44,33 @@
 
     <div id="result"></div>
 
+    <form>
+      <div class="form-group">
+        <label for="days">Enter the Number of days</label>
+        <input
+          type="text"
+          class="form-control"
+          id="days"
+          value="days"
+          placeholder="days"
+        />
+      </div>
+      <br />
+      <div class="form-group">
+        <label for="price">Enter price</label>
+        <input
+          type="text"
+          class="form-control"
+          id="price"
+          placeholder="Enter price"
+        />
+      </div>
+      <br />
+      <button type="button" class="btn btn-primary" onclick="updateCruise()">
+        Update the cruise
+      </button>
+    </form>
+
     <script>
       let my_cruise = {};
 
@@ -58,6 +85,14 @@
         // Replace the innerHTML of the result div with my_cruise.
         const resultElement = document.getElementById("result");
         resultElement.innerHTML = JSON.stringify(my_cruise);
+      }
+
+      function updateCruise() {
+        days = document.getElementById("days").value;
+        price = document.getElementById("price").value;
+        my_cruise["days"] = days;
+        my_cruise["price"] = price;
+        document.getElementById("result").innerHTML = JSON.stringify(my_cruise);
       }
     </script>
   </body>
