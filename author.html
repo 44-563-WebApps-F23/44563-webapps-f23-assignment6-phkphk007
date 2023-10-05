@@ -2,6 +2,22 @@
 <html>
   <head>
     <title>Guess The Author</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+      integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+      integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+      crossorigin="anonymous"
+    ></script>
   </head>
   <body>
     <h1>Author entry Hemanth Kumar</h1>
@@ -9,6 +25,7 @@
       <label for="secretAuthor">The hidden author name:</label>
       <input
         type="password"
+        class="form-control form-control-lg"
         id="secretAuthor"
         name="secretAuthor"
         value="Dickens"
@@ -17,13 +34,23 @@
       <br />
 
       <label for="userGuess">Guess the author:</label>
-      <input type="text" id="userGuess" name="userGuess" required />
+      <input
+        type="text"
+        class="form-control form-control-lg"
+        id="userGuess"
+        name="userGuess"
+        required
+      />
+      <br />
       <br />
 
-      <input type="button" value="Check the guess" onclick="checkAuthor()" />
+      <button type="submit" class="btn btn-primary" onclick="checkAuthor()">
+        Check the guess
+      </button>
+
       <br />
     </form>
-    <p id="resultMes"></p>
+    <div id="resultMes"></div>
 
     <hr />
     <!--  part 4-->
@@ -70,11 +97,19 @@
           alert("You got it right!");
         } else {
           oops++;
+          if (oops > 3) {
+            gamelimit();
+            return;
+          }
+
           alert("Sorry!");
         }
 
         document.getElementById("resultMes").innerHTML =
           "Good Count: " + good + "<br>Oops Count: " + oops;
+      }
+      function gamelimit() {
+        alert("Sorry, ran out of guesses.");
       }
     </script>
   </body>
